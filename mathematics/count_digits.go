@@ -1,8 +1,9 @@
-package Mathematics
+package mathematics
 
 import (
 	"strconv"
 )
+
 func LenOfString(n int) int {
 	// Return length of string
 	// convert integer to string and get the length of the string

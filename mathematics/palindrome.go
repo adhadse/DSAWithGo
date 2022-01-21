@@ -1,4 +1,4 @@
-package Mathematics
+package mathematics
 
 func Palindrome(s string) bool {
 	// checks for palindrome by reversing the sting

@@ -1,4 +1,4 @@
-package Mathematics
+package mathematics
 
 func Factorial(x int) int {
 	// find factorial by recursion.
