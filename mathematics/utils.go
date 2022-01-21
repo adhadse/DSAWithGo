@@ -1,4 +1,4 @@
-package Mathematics
+package mathematics
 
 func absInt(x int) int {
 	return absDiffInt(x, 0)

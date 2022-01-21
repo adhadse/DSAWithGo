@@ -1,4 +1,4 @@
-package Mathematics
+package mathematics
 
 func GCD(a, b int) int {
 	// calculates Greatest Common Divisor
@@ -6,5 +6,5 @@ func GCD(a, b int) int {
 	for b != 0 {
 		a, b = b, a%b
 	}
-	return a
+	return absInt(a)
 }
