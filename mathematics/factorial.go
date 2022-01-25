@@ -1,7 +1,7 @@
 package mathematics
 
+// Factorial returns factorial of a number by recursion.
 func Factorial(x int) int {
-	// find factorial by recursion.
 	if x == 0 || x == 1 {
 		return 1
 	} else {

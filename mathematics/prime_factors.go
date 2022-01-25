@@ -2,9 +2,9 @@ package mathematics
 
 import "math"
 
+// PrimeFactors return a list of prime factors of an integer by
+// first checking if the modulo of the value of d and number is equal to 0.
 func PrimeFactors(x int) []int {
-	// Return a list of prime factors of an integer by
-	// first checking if the modulo of the value of d and number is equal to 0.
 	var divisors []int
 	var primeFactors []int
 	for d := 2; d < int(math.Floor(float64(x)/2))+1; d++ {

@@ -6,11 +6,11 @@ import (
 
 func TestLenOfString(t *testing.T) {
 	var val int
-	if val = LenOfString(1234); val != 10 {
+	if val = LenOfString(1234); val != 4 {
 		t.Error("Method returned value other than 4 for input 1234:", val)
 	}
-	if val = LenOfString(-1234); val != 10 {
-		t.Error("Method returned value other than 4 for input 1234:", val)
+	if val = LenOfString(-1234); val != 4 {
+		t.Error("Method returned value other than 4 for input -1234:", val)
 	}
 	if val = LenOfString(0); val != 1 {
 		t.Error("Method returned value other than 1 for input 0:", val)
