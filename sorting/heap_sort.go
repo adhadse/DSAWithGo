@@ -37,9 +37,9 @@ func HeapSort(list []int) []int {
 // then recursively heapify the affected subtree.
 //
 // Parameters:
-// 	- list: complete slice storing heap
+//	- list: complete slice storing heap
 //  - root: root index to heapify
-// 	- end:  size of heap to be heapified out of `list`
+//  - end:  size of heap to be heapified out of `list`
 func heapify(list []int, root, end int) {
 	left := 2*root + 1  // left child index of root node
 	right := 2*root + 2 // right child index of root node
