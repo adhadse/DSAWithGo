@@ -7,7 +7,7 @@ Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisi
 1. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
 2. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
 
-# FAQshttps://github.com/adhadse/DSAWithGo/tree/master/mathematics)
+# FAQ
 1. **Why in Go? Why not in Python/C/C++ etc?**
 
 As for C/C++, you can, you probably should! But when the focus is learning DSA, C/C++'s complexity can become a barrier. As for Python, it's already done by [thisisshub](https://github.com/thisisshub/).
