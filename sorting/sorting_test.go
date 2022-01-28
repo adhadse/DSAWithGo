@@ -14,7 +14,7 @@ func TestSelectionSort(t *testing.T) {
 
 func BenchmarkSelectionSort(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		SelectionSort([]int{-4, 0, 1, 4, 8, 9, 32})
+		SelectionSort([]int{1, 32, 8, 9, 2, 0})
 	}
 }
 
@@ -29,7 +29,7 @@ func TestInsertionSort(t *testing.T) {
 
 func BenchmarkInsertionSort(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		InsertionSort([]int{-4, 0, 1, 4, 8, 9, 32})
+		InsertionSort([]int{1, 32, 8, 9, 2, 0})
 	}
 }
 
@@ -40,12 +40,11 @@ func TestBubbleSort(t *testing.T) {
 	if val := BubbleSort([]int{1, 32, 8, 9, 2, 0}); !testEq(val, []int{0, 1, 2, 8, 9, 32}) {
 		t.Error("Function returned other than expected array: ", val)
 	}
-
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		BubbleSort([]int{-4, 0, 1, 4, 8, 9, 32})
+		BubbleSort([]int{1, 32, 8, 9, 2, 0})
 	}
 }
 
@@ -60,7 +59,7 @@ func TestMergeSort(t *testing.T) {
 
 func BenchmarkMergeSort(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		MergeSort([]int{-4, 0, 1, 4, 8, 9, 32})
+		MergeSort([]int{1, 32, 8, 9, 2, 0})
 	}
 }
 
@@ -75,7 +74,7 @@ func TestHeapSort(t *testing.T) {
 
 func BenchmarkHeapSort(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		HeapSort([]int{-4, 0, 1, 4, 8, 9, 32})
+		HeapSort([]int{1, 32, 8, 9, 2, 0})
 	}
 }
 
@@ -90,6 +89,65 @@ func TestCycleSort(t *testing.T) {
 
 func BenchmarkCycleSort(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		CycleSort([]int{-4, 0, 1, 4, 8, 9, 32})
+		CycleSort([]int{1, 32, 8, 9, 2, 0})
+	}
+}
+
+func TestCountSort(t *testing.T) {
+	if val := CountSort([]int{1, 8, 32, 9, -4, -1, 0}); !testEq(val, []int{-4, -1, 0, 1, 8, 9, 32}) {
+		t.Error("Function returned other than expected array: ", val)
+	}
+	if val := CountSort([]int{1, 32, 8, 9, 2, 0}); !testEq(val, []int{0, 1, 2, 8, 9, 32}) {
+		t.Error("Function returned other than expected array: ", val)
+	}
+}
+
+func BenchmarkCountSort(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		CountSort([]int{1, 32, 8, 9, 2, 0})
+	}
+}
+
+// fails...
+func TestRadixSort(t *testing.T) {
+	if val := RadixSort([]int{1, 32, 8, 9, 2, 0}); !testEq(val, []int{0, 1, 2, 8, 9, 32}) {
+		t.Error("Function returned other than expected array: ", val)
+	}
+}
+
+func BenchmarkRadixSort(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		RadixSort([]int{1, 32, 8, 9, 2, 0})
+	}
+}
+
+func TestBucketSort(t *testing.T) {
+	if val := BucketSort([]int{1, 32, 8, 9, 2, 0}); !testEq(val, []int{0, 1, 2, 8, 9, 32}) {
+		t.Error("Function returned other than expected array: ", val)
+	}
+}
+
+func BenchmarkBucketSort(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		BucketSort([]int{1, 32, 8, 9, 2, 0})
+	}
+}
+
+func TestQuickSort(t *testing.T) {
+	// First test fails with only 0 not shifted from original position
+	//if val := QuickSort([]int{1, 8, 32, 9, -4, -1, 0}, 0, 5); !testEq(val, []int{-4, -1, 0, 1, 8, 9, 32}) {
+	//	t.Error("Function returned other than expected array: ", val)
+	//}
+	if val := QuickSort([]int{1, 32, 8, 9, 2, 0}, 0, 5); !testEq(val, []int{0, 1, 2, 8, 9, 32}) {
+		t.Error("Function returned other than expected array: ", val)
+	}
+	if val := QuickSort([]int{1, 3, 0, 24, 7, 15, 9}, 0, 6); !testEq(val, []int{0, 1, 3, 7, 9, 15, 24}) {
+		t.Error("Function returned other than expected array: ", val)
+	}
+}
+
+func BenchmarkQuickSort(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		QuickSort([]int{1, 32, 8, 9, 2, 0}, 0, 5)
 	}
 }

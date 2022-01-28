@@ -13,6 +13,7 @@ func MergeSort(list []int) []int {
 	return merge(left, right)
 }
 
+// merge returns a merged slice
 func merge(left, right []int) []int {
 	i, j := 0, 0
 	var result []int
