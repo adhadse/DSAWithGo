@@ -1,24 +1,24 @@
 # DSAWithGo <img src="https://img.icons8.com/color/48/000000/golang.png"/>
-A DSA repository but everything is in Go.
+A DSA repository but everything is in Go. Leave a star🌟if you love Go and like this repository.💫
 
 Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisisshub](https://github.com/thisisshub/)
 
-# Contents
+# Contents 📃
 1. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
 2. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
 
-# FAQ
+# FAQ  🤔
 1. **Why in Go? Why not in Python/C/C++ etc?**
 
 As for C/C++, you can, you probably should! But when the focus is learning DSA, C/C++'s complexity can become a barrier. As for Python, it's already done by [thisisshub](https://github.com/thisisshub/).
 
-Then why Go? One reason is for pure performance comparable to C, combined with the simplicity and ease like python.
+Then why Go? One reason is for pure performance comparable to C, combined with the simplicity and ease like python.😎
 
 2. **How do I use it?**
 
 Go through them one by one, and reimplement in your favourite language.
 
-# Prerequisites
+# Prerequisites 📝
 Install Go for your relevant platform. If you are using editors or IDEs it's fairly easy to play through them, otherwise you can run these commands:
 
 - Running all tests 
