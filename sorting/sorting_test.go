@@ -64,12 +64,15 @@ func BenchmarkMergeSort(b *testing.B) {
 }
 
 func TestHeapSort(t *testing.T) {
-	if val := HeapSort([]int{1, 8, 32, 9, -4, -1, 0}); !testEq(val, []int{-4, -1, 0, 1, 8, 9, 32}) {
+	if val := HeapSort([]int{12, 23, 4, 15, 33, 65, 10, 19, 82}); !testEq(val, []int{-4, -1, 0, 1, 8, 9, 32}) {
 		t.Error("Function returned other than expected array: ", val)
 	}
-	if val := HeapSort([]int{1, 32, 8, 9, 2, 0}); !testEq(val, []int{0, 1, 2, 8, 9, 32}) {
-		t.Error("Function returned other than expected array: ", val)
-	}
+	//if val := HeapSort([]int{1, 8, 32, 9, -4, -1, 0}); !testEq(val, []int{-4, -1, 0, 1, 8, 9, 32}) {
+	//	t.Error("Function returned other than expected array: ", val)
+	//}
+	//if val := HeapSort([]int{1, 32, 8, 9, 2, 0}); !testEq(val, []int{0, 1, 2, 8, 9, 32}) {
+	//	t.Error("Function returned other than expected array: ", val)
+	//}
 }
 
 func BenchmarkHeapSort(b *testing.B) {
