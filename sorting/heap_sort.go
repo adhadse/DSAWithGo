@@ -22,6 +22,7 @@ func HeapSort(list []int) []int {
 	for root := start; root > -1; root-- {
 		heapify(list, root, end)
 	}
+
 	// extract elements one by one
 	for i := end - 1; i > 0; i-- {
 		list[i], list[0] = list[0], list[i]

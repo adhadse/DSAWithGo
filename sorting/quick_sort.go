@@ -1,5 +1,7 @@
 package sorting
 
+import "fmt"
+
 // QuickSort returns a sorted slice based on quick
 // sort algorithm (Lomuto's partition scheme)
 // which is a divide and conquer technique
@@ -42,6 +44,7 @@ func partition(list []int, low, high int) int {
 			// i.e., items behind minIdx are smaller than pivot
 			minIdx++
 			list[minIdx], list[i] = list[i], list[minIdx]
+			fmt.Printf("List becomes: %v\n", list)
 		}
 	}
 	// Swap list[minIdx+1] and pivot, bringing pivot at appropriate position
