@@ -2,11 +2,12 @@ package tree
 
 import "fmt"
 
-func InorderTraversal(root *Node) {
-	if root == nil {
+// InorderTraversal
+func InorderTraversal(node *Node) {
+	if node == nil {
 		return
 	}
-	InorderTraversal(root.left)   // First recur on left child
-	fmt.Printf(" ->%d", root.val) // Check current node
-	InorderTraversal(root.right)  // Now recur on right child
+	InorderTraversal(node.left)   // First recur on left child
+	fmt.Printf(" ->%d", node.val) // Check current node
+	InorderTraversal(node.right)  // Now recur on right child
 }
