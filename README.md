@@ -4,9 +4,10 @@ A DSA repository but everything is in Go. Leave a star🌟if you love Go and lik
 Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisisshub](https://github.com/thisisshub/)
 
 # Contents 📃
-1. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
-2. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
-3. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
+1. [tree](https://github.com/adhadse/DSAWithGo/tree/master/graph)
+2. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
+3. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
+4. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
 
 # FAQ  🤔
 1. **Why in Go? Why not in Python/C/C++ etc?**
