@@ -1,10 +1,10 @@
-# DSAWithGo <img src="https://img.icons8.com/color/48/000000/golang.png"/>
+# DSAWithGo <img width=100 src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg"/>
 A DSA repository but everything is in Go. Leave a star🌟if you love Go and like this repository.💫
 
 Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisisshub](https://github.com/thisisshub/)
 
 # Contents 📃
-1. [tree](https://github.com/adhadse/DSAWithGo/tree/master/graph)
+1. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)
 2. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
 3. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
 4. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
@@ -43,15 +43,5 @@ Install Go for your relevant platform. If you are using editors or IDEs it's fai
   ```go
   go test .
   ```
-- Running a specific test, go into that specific directory and,
-
-   ```go
-   go test run=<TestFunctionName>
-   ```
-- Benchmarking a function with a specific number of loop count
    
-   ```go
-   go test -run=<BenchmarkFunctionName> -bench=10000x
-   ```
-   
-Created By Anurag Dhadse
+Created By [Anurag Dhadse](https://anuragdhadse.com)
