@@ -13,22 +13,22 @@ import "fmt"
 // [ 4 ] : 0       (means 4 has an edge to 0)
 type AdjacencyList struct {
 	numOfVertices int
-	adjacencyList []*Node
+	adjacencyList map[interface{}]*Node
 }
 
 type Node struct {
-	vertex int
+	vertex interface{}
 	next   *Node
 }
 
 func MakeAdjacencyList(numOfVertices int) AdjacencyList {
 	g := AdjacencyList{
-		adjacencyList: make([]*Node, numOfVertices),
+		adjacencyList: make(map[interface{}]*Node, numOfVertices),
 		numOfVertices: numOfVertices}
 	return g
 }
 
-func (g AdjacencyList) AddEdge(src, dest int) {
+func (g AdjacencyList) AddEdge(src, dest interface{}) {
 	destNode := &Node{vertex: dest, next: g.adjacencyList[src]}
 	g.adjacencyList[src] = destNode
 
