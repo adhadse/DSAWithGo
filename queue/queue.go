@@ -1,6 +1,8 @@
 package queue
 
-import "DSA/linked_list"
+import (
+	"DSA/linked_list"
+)
 
 type Queue struct {
 	// Use composition through
@@ -33,6 +35,7 @@ func (q *Queue) IsEmpty() bool {
 	}
 	return true
 }
+
 func (q *Queue) PrintQueue() {
 	q.PrintLinkedList()
 }
