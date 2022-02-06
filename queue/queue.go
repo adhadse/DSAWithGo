@@ -25,6 +25,14 @@ func (q *Queue) Dequeue() (interface{}, error) {
 	return returnVal, err
 }
 
+// IsEmpty returns true if queue is empty
+// else returns false
+func (q *Queue) IsEmpty() bool {
+	if q.NumOfNodes != 0 {
+		return false
+	}
+	return true
+}
 func (q *Queue) PrintQueue() {
 	q.PrintLinkedList()
 }

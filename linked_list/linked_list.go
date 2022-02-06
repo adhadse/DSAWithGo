@@ -5,7 +5,7 @@ import "fmt"
 type LinkedList struct {
 	first      *Node
 	last       *Node
-	numOfNodes uint
+	NumOfNodes uint
 }
 
 type Node struct {
@@ -34,7 +34,7 @@ func (ll *LinkedList) AddNodeAtFront(data interface{}) {
 		// AddNodeAtEnd don't work without this
 		ll.last = ll.first
 	}
-	ll.numOfNodes++
+	ll.NumOfNodes++
 }
 
 func (ll *LinkedList) AddNodeAtEnd(data interface{}) {
@@ -46,7 +46,7 @@ func (ll *LinkedList) AddNodeAtEnd(data interface{}) {
 		ll.last.next = newLast
 	}
 	ll.last = newLast
-	ll.numOfNodes++
+	ll.NumOfNodes++
 }
 
 func (ll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
@@ -56,11 +56,11 @@ func (ll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 		ll.AddNodeAtFront(data)
 		return
 	}
-	for i := 1; i <= int(ll.numOfNodes) && currentNode != nil; i++ {
+	for i := 1; i <= int(ll.NumOfNodes) && currentNode != nil; i++ {
 		if i == afterNode {
 			newNode := &Node{data: data, next: currentNode.next}
 			currentNode.next = newNode
-			ll.numOfNodes++
+			ll.NumOfNodes++
 			return
 		}
 		currentNode = currentNode.next
@@ -70,17 +70,17 @@ func (ll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 // Deletion
 
 func (ll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
-	if ll.numOfNodes == 0 {
+	if ll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
 	returnVal := ll.first.data
 	ll.first = ll.first.next
-	ll.numOfNodes--
+	ll.NumOfNodes--
 	return returnVal, nil
 }
 
 func (ll *LinkedList) RemoveNodeAtEnd() (interface{}, error) {
-	if ll.numOfNodes == 0 {
+	if ll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
 	currentNode := ll.first
@@ -91,7 +91,7 @@ func (ll *LinkedList) RemoveNodeAtEnd() (interface{}, error) {
 		if currentNode.next == nil {
 			// this is last node,
 			previousNode.next = nil
-			ll.numOfNodes--
+			ll.NumOfNodes--
 			return currentNode.data, nil
 		}
 		previousNode = currentNode
@@ -101,7 +101,7 @@ func (ll *LinkedList) RemoveNodeAtEnd() (interface{}, error) {
 }
 
 func (ll *LinkedList) RemoveNodeAtSpecified(nodeToDelete interface{}) (interface{}, error) {
-	if ll.numOfNodes == 0 {
+	if ll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
 	currentNode := ll.first
@@ -110,7 +110,7 @@ func (ll *LinkedList) RemoveNodeAtSpecified(nodeToDelete interface{}) (interface
 	for currentNode != nil {
 		if i == nodeToDelete {
 			previousNode.next = currentNode.next
-			ll.numOfNodes--
+			ll.NumOfNodes--
 			return currentNode.data, nil
 		}
 		i += 1
@@ -121,7 +121,7 @@ func (ll *LinkedList) RemoveNodeAtSpecified(nodeToDelete interface{}) (interface
 }
 
 func (ll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
-	if ll.numOfNodes == 0 {
+	if ll.NumOfNodes == 0 {
 		return &LinkedListError{"Linked List is empty!"}
 	}
 	currentNode := ll.first
@@ -130,7 +130,7 @@ func (ll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
 	for currentNode != nil {
 		if currentNode.data == nodeValueToDelete {
 			previousNode.next = currentNode.next
-			ll.numOfNodes--
+			ll.NumOfNodes--
 		}
 		previousNode = currentNode
 		currentNode = currentNode.next
@@ -147,5 +147,5 @@ func (ll *LinkedList) PrintLinkedList() {
 		count++
 		currentNode = currentNode.next
 	}
-	fmt.Printf("Last | Num of Nodes: %d\n", ll.numOfNodes)
+	fmt.Printf("Last | Num of Nodes: %d\n", ll.NumOfNodes)
 }
