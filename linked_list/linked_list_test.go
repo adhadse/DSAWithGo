@@ -1,6 +1,9 @@
 package linked_list
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestLinkedList_AddNodeAtFront(t *testing.T) {
 	ll := MakeLinkedList()
@@ -33,7 +36,11 @@ func TestLinkedList_AddNodeAtSpecified(t *testing.T) {
 
 func TestLinkedList_RemoveNodeAtFront(t *testing.T) {
 	ll := MakeLinkedList()
-	ll.RemoveNodeAtFront() // Should print "UNDERFLOW" as linked list is empty
+	_, err := ll.RemoveNodeAtFront()
+	if err != nil {
+		fmt.Println(err) // Should print "UNDERFLOW" as linked list is empty
+		//return         // Or you can handle your way
+	}
 
 	ll.AddNodeAtFront(4)
 	ll.AddNodeAtFront(3)
@@ -49,7 +56,11 @@ func TestLinkedList_RemoveNodeAtFront(t *testing.T) {
 
 func TestLinkedList_RemoveNodeAtEnd(t *testing.T) {
 	ll := MakeLinkedList()
-	ll.RemoveNodeAtEnd() // Should print "UNDERFLOW" as linked list is empty
+	_, err := ll.RemoveNodeAtEnd()
+	if err != nil {
+		fmt.Println(err) // Should print "UNDERFLOW" as linked list is empty
+		//return         // Or you can handle your way
+	}
 
 	ll.AddNodeAtFront(4)
 	ll.AddNodeAtFront(3)
@@ -57,15 +68,19 @@ func TestLinkedList_RemoveNodeAtEnd(t *testing.T) {
 	ll.AddNodeAtFront(1)
 
 	ll.RemoveNodeAtEnd() // Delete node 4
-	ll.RemoveNodeAtEnd() // Delete node 2
 	ll.RemoveNodeAtEnd() // Delete node 3
+	ll.RemoveNodeAtEnd() // Delete node 2
 
 	ll.PrintLinkedList()
 }
 
 func TestLinkedList_RemoveNodeAtSpecified(t *testing.T) {
 	ll := MakeLinkedList()
-	ll.RemoveNodeAtSpecified(0) // Should print "UNDERFLOW" as linked list is empty
+	_, err := ll.RemoveNodeAtSpecified(0)
+	if err != nil {
+		fmt.Println(err) // Should print "UNDERFLOW" as linked list is empty
+		//return         // Or you can handle your way
+	}
 
 	ll.AddNodeAtFront(4)
 	ll.AddNodeAtFront(3)
@@ -80,8 +95,11 @@ func TestLinkedList_RemoveNodeAtSpecified(t *testing.T) {
 
 func TestLinkedList_RemoveNodeWithValue(t *testing.T) {
 	ll := MakeLinkedList()
-	ll.RemoveNodeWithValue(1) // Should print linked list is empty
-
+	err := ll.RemoveNodeWithValue(1)
+	if err != nil {
+		fmt.Println(err) // Should print "Linked list is empty" as error
+		//return         // Or you can handle your way
+	}
 	ll.AddNodeAtFront(4)
 	ll.AddNodeAtFront(3)
 	ll.AddNodeAtFront(2)
