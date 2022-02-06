@@ -71,7 +71,7 @@ func (ll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 
 func (ll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
 	if ll.numOfNodes == 0 {
-		return 0, &LinkedListError{"UNDERFLOW"}
+		return nil, &LinkedListError{"UNDERFLOW"}
 	}
 	returnVal := ll.first.data
 	ll.first = ll.first.next
@@ -81,7 +81,7 @@ func (ll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
 
 func (ll *LinkedList) RemoveNodeAtEnd() (interface{}, error) {
 	if ll.numOfNodes == 0 {
-		return 0, &LinkedListError{"UNDERFLOW"}
+		return nil, &LinkedListError{"UNDERFLOW"}
 	}
 	currentNode := ll.first
 	var previousNode *Node = nil

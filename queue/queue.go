@@ -13,14 +13,14 @@ func MakeQueue() Queue {
 	return Queue{LinkedList: linked_list.MakeLinkedList()}
 }
 
-func (q *Queue) Enqueue(data int) {
+func (q *Queue) Enqueue(data interface{}) {
 	q.AddNodeAtEnd(data)
 }
 
-func (q *Queue) Dequeue() (int, error) {
+func (q *Queue) Dequeue() (interface{}, error) {
 	returnVal, err := q.RemoveNodeAtFront()
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
 	return returnVal, err
 }
