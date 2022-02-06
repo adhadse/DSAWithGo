@@ -36,6 +36,16 @@ func (g AdjacencyList) AddEdge(src, dest interface{}) {
 	g.adjacencyList[dest] = srcNode
 }
 
+func (g AdjacencyList) GetAdjacencyList(forNode interface{}) []*Node {
+	var adjacencyList []*Node
+	temp := g.adjacencyList[forNode]
+	for temp != nil {
+		adjacencyList = append(adjacencyList, temp)
+		temp = temp.next
+	}
+	return adjacencyList
+}
+
 func (g AdjacencyList) PrintAdjacencyList() {
 	for i := 0; i < g.numOfVertices; i++ {
 		fmt.Printf("Adjacency List of vertex %d| head", i)
