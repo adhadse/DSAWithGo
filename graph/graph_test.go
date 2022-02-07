@@ -77,5 +77,16 @@ func TestAdjacencyList_BFS(t *testing.T) {
 		// err != nil; some error deal with it
 		return
 	}
+}
 
+func TestAdjacencyList_DFS(t *testing.T) {
+	graph := MakeAdjacencyList(5)
+	graph.AddEdge(0, 1)
+	graph.AddEdge(0, 4)
+	graph.AddEdge(1, 2)
+	graph.AddEdge(1, 3)
+
+	if val := graph.DFS(1, 3, []int{}); val != true {
+		t.Error("DFS returned false for source: 0, destination: 3")
+	}
 }
