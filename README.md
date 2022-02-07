@@ -7,8 +7,9 @@ Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisi
 1. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)
 2. [linked_list](https://github.com/adhadse/DSAWithGo/tree/master/linked_list)
 3. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
-4. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
-5. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
+4. [queue](https://github.com/adhadse/DSAWithGo/tree/master/queue)
+5. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
+6. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
 
 # FAQ  🤔
 1. **Why in Go? Why not in Python/C/C++ etc?**
