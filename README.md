@@ -5,11 +5,13 @@ Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisi
 
 # Contents 📃
 1. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)
-2. [linked_list](https://github.com/adhadse/DSAWithGo/tree/master/linked_list)
-3. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
-4. [queue](https://github.com/adhadse/DSAWithGo/tree/master/queue)
-5. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
-6. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
+2. [greedy](https://github.com/adhadse/DSAWithGo/tree/master/greedy)
+3. [linked_list](https://github.com/adhadse/DSAWithGo/tree/master/linked_list)
+4. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
+5. [queue](https://github.com/adhadse/DSAWithGo/tree/master/queue)
+6. [searching](https://github.com/adhadse/DSAWithGo/tree/master/searching)
+7. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
+8. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
 
 # FAQ  🤔
 1. **Why in Go? Why not in Python/C/C++ etc?**
