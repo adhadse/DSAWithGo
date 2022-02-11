@@ -36,6 +36,11 @@ func (q *Queue) IsEmpty() bool {
 	return true
 }
 
+// IsSizeOne checks if queue has only 1 node
+func (q *Queue) IsSizeOne() bool {
+	return q.NumOfNodes == 1
+}
+
 func (q *Queue) PrintQueue() {
 	q.PrintLinkedList()
 }
