@@ -17,15 +17,15 @@ func SolveFractionalKnapsack(weight, value []int, knapsackCapacity int) int {
 
 	totalValue := 0
 	for i := range knapsackItems {
-		currentWeight := knapsackItems[i].weight
-		currentValue := knapsackItems[i].value
-		if knapsackCapacity-currentWeight >= 0 {
-			knapsackCapacity -= currentWeight
-			totalValue += currentValue
+		itemWeight := knapsackItems[i].weight
+		itemValue := knapsackItems[i].value
+		if knapsackCapacity-itemWeight >= 0 {
+			knapsackCapacity -= itemWeight
+			totalValue += itemValue
 		} else {
-			fraction := knapsackCapacity / currentWeight
-			totalValue += currentValue * fraction
-			knapsackCapacity = knapsackCapacity - (currentWeight * fraction)
+			fraction := knapsackCapacity / itemWeight
+			totalValue += itemValue * fraction
+			knapsackCapacity = knapsackCapacity - (itemWeight * fraction)
 			break
 		}
 	}

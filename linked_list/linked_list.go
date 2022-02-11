@@ -9,7 +9,7 @@ type LinkedList struct {
 }
 
 type Node struct {
-	data interface{}
+	Data interface{}
 	Next *Node
 }
 
@@ -27,7 +27,7 @@ func MakeLinkedList() LinkedList {
 
 func (ll *LinkedList) AddNodeAtFront(data interface{}) {
 	oldFirst := ll.First
-	ll.First = &Node{data: data, Next: oldFirst}
+	ll.First = &Node{Data: data, Next: oldFirst}
 	if ll.last == nil {
 		// When last pointer is null
 		// and only inserting at front; last is null
@@ -38,7 +38,7 @@ func (ll *LinkedList) AddNodeAtFront(data interface{}) {
 }
 
 func (ll *LinkedList) AddNodeAtEnd(data interface{}) {
-	newLast := &Node{data: data, Next: nil}
+	newLast := &Node{Data: data, Next: nil}
 	if ll.First == nil {
 		ll.First = newLast // if no node in link list
 	} else {
@@ -58,7 +58,7 @@ func (ll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 	}
 	for i := 1; i <= int(ll.NumOfNodes) && currentNode != nil; i++ {
 		if i == afterNode {
-			newNode := &Node{data: data, Next: currentNode.Next}
+			newNode := &Node{Data: data, Next: currentNode.Next}
 			currentNode.Next = newNode
 			ll.NumOfNodes++
 			return
@@ -73,7 +73,7 @@ func (ll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
 	if ll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
-	returnVal := ll.First.data
+	returnVal := ll.First.Data
 	ll.First = ll.First.Next
 	ll.NumOfNodes--
 	return returnVal, nil
@@ -92,7 +92,7 @@ func (ll *LinkedList) RemoveNodeAtEnd() (interface{}, error) {
 			// this is last node,
 			previousNode.Next = nil
 			ll.NumOfNodes--
-			return currentNode.data, nil
+			return currentNode.Data, nil
 		}
 		previousNode = currentNode
 		currentNode = currentNode.Next
@@ -111,7 +111,7 @@ func (ll *LinkedList) RemoveNodeAtSpecified(nodeToDelete interface{}) (interface
 		if i == nodeToDelete {
 			previousNode.Next = currentNode.Next
 			ll.NumOfNodes--
-			return currentNode.data, nil
+			return currentNode.Data, nil
 		}
 		i += 1
 		previousNode = currentNode
@@ -128,7 +128,7 @@ func (ll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
 	var previousNode *Node = nil
 
 	for currentNode != nil {
-		if currentNode.data == nodeValueToDelete {
+		if currentNode.Data == nodeValueToDelete {
 			previousNode.Next = currentNode.Next
 			ll.NumOfNodes--
 		}
@@ -143,7 +143,7 @@ func (ll *LinkedList) PrintLinkedList() {
 	count := 1
 	fmt.Println("First")
 	for currentNode != nil {
-		fmt.Printf(" (%d) | Node Value:%d\n", count, currentNode.data)
+		fmt.Printf(" (%d) | Node Value:%d\n", count, currentNode.Data)
 		count++
 		currentNode = currentNode.Next
 	}
