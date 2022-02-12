@@ -134,7 +134,7 @@ func BenchmarkBucketSort(b *testing.B) {
 }
 
 func TestQuickSort(t *testing.T) {
-	// First test fails with only 0 not shifted from original position
+	// first test fails with only 0 not shifted from original position
 	//if val := QuickSort([]int{1, 8, 32, 9, -4, -1, 0}, 0, 5); !testEq(val, []int{-4, -1, 0, 1, 8, 9, 32}) {
 	//	t.Error("Function returned other than expected array: ", val)
 	//}

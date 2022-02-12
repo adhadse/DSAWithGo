@@ -2,54 +2,50 @@ package linked_list
 
 import "fmt"
 
-type LinkedList struct {
-	first      *Node
-	last       *Node
+type DoublyLinkedList struct {
+	first      *DoublyNode
+	last       *DoublyNode
 	NumOfNodes uint
 }
 
-type Node struct {
-	data interface{}
-	next *Node
+type DoublyNode struct {
+	next     *DoublyNode // pointer to next node in DLL
+	previous *DoublyNode // pointer to previous node in DLL
+	data     interface{}
 }
 
-type LinkedListError struct {
-	errorString string
+func MakeDoublyLinkedList() DoublyLinkedList {
+	return DoublyLinkedList{first: nil, last: nil}
 }
 
-func (e LinkedListError) Error() string {
-	return e.errorString
-}
-
-func MakeLinkedList() LinkedList {
-	return LinkedList{first: nil, last: nil}
-}
-
-func (dll *LinkedList) AddNodeAtFront(data interface{}) {
+func (dll *DoublyLinkedList) AddNodeAtFront(data interface{}) {
 	oldFirst := dll.first
-	dll.first = &Node{data: data, next: oldFirst}
+	dll.first = &DoublyNode{next: oldFirst, previous: nil, data: data}
+	//dll.first.next.previous = dll.first
 	if dll.last == nil {
 		// When last pointer is null
 		// and only inserting at front; last is null
 		// AddNodeAtBack don't work without this
 		dll.last = dll.first
+	} else {
+		oldFirst.previous = dll.first
 	}
 	dll.NumOfNodes++
 }
 
-func (dll *LinkedList) AddNodeAtBack(data interface{}) {
-	newLast := &Node{data: data, next: nil}
+func (dll *DoublyLinkedList) AddNodeAtBack(data interface{}) {
+	newLast := &DoublyNode{next: nil, previous: dll.last, data: data}
 	if dll.first == nil {
-		dll.first = newLast // if no node in link list
+		dll.first = newLast // if no node in doubly linked list
 	} else {
-		// else add new last node pointer to old last instead of nil
+		// else add new last node pointer to old last instead
 		dll.last.next = newLast
 	}
 	dll.last = newLast
 	dll.NumOfNodes++
 }
 
-func (dll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
+func (dll *DoublyLinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 	currentNode := dll.first
 	if afterNode <= 0 {
 		// if insertion never happened previously
@@ -58,7 +54,7 @@ func (dll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 	}
 	for i := 1; i <= int(dll.NumOfNodes) && currentNode != nil; i++ {
 		if i == afterNode {
-			newNode := &Node{data: data, next: currentNode.next}
+			newNode := &DoublyNode{next: currentNode.next, previous: currentNode.previous, data: data}
 			currentNode.next = newNode
 			dll.NumOfNodes++
 			return
@@ -69,7 +65,7 @@ func (dll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 
 // Deletion
 
-func (dll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
+func (dll *DoublyLinkedList) RemoveNodeAtFront() (interface{}, error) {
 	if dll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
@@ -79,33 +75,25 @@ func (dll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
 	return returnVal, nil
 }
 
-func (dll *LinkedList) RemoveNodeAtBack() (interface{}, error) {
+func (dll *DoublyLinkedList) RemoveNodeAtBack() (interface{}, error) {
 	if dll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
-	currentNode := dll.first
-	var previousNode *Node = nil
+	prevNodeToLast := dll.last.previous
+	returnVal := dll.last.data
 
-	// iterate over linked list
-	for currentNode != nil {
-		if currentNode.next == nil {
-			// this is last node,
-			previousNode.next = nil
-			dll.NumOfNodes--
-			return currentNode.data, nil
-		}
-		previousNode = currentNode
-		currentNode = currentNode.next
-	}
-	return nil, nil
+	dll.last = prevNodeToLast
+	dll.last.next = nil
+	dll.NumOfNodes--
+	return returnVal, nil
 }
 
-func (dll *LinkedList) RemoveNodeAtSpecified(nodeNum int) (interface{}, error) {
+func (dll *DoublyLinkedList) RemoveNodeAtSpecified(nodeNum int) (interface{}, error) {
 	if dll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
 	currentNode := dll.first
-	var previousNode *Node = nil
+	var previousNode *DoublyNode = nil
 	i := 1
 	for currentNode != nil {
 		if i == nodeNum {
@@ -120,12 +108,12 @@ func (dll *LinkedList) RemoveNodeAtSpecified(nodeNum int) (interface{}, error) {
 	return nil, nil
 }
 
-func (dll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
+func (dll *DoublyLinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
 	if dll.NumOfNodes == 0 {
 		return &LinkedListError{"Linked List is empty!"}
 	}
 	currentNode := dll.first
-	var previousNode *Node = nil
+	var previousNode *DoublyNode = nil
 
 	for currentNode != nil {
 		if currentNode.data == nodeValueToDelete {
@@ -138,7 +126,7 @@ func (dll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
 	return nil
 }
 
-func (dll *LinkedList) PrintLinkedList() {
+func (dll *DoublyLinkedList) PrintLinkedList() {
 	currentNode := dll.first
 	count := 1
 	fmt.Println("first")

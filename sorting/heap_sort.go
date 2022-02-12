@@ -3,7 +3,7 @@ package sorting
 // HeapSort returns sorted slice in ascending order based on
 // binary Heap data structure.
 //
-// First, it repetitively calls heapify() to create max-heap of unsorted slice
+// first, it repetitively calls heapify() to create max-heap of unsorted slice
 //
 // then, swapping first and last element of unsorted slice,i.e.,
 // root node at index 0 is the max of heap moved to last of unsorted slice

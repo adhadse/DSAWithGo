@@ -16,7 +16,7 @@ func MakeQueue() Queue {
 }
 
 func (q *Queue) Enqueue(data interface{}) {
-	q.AddNodeAtEnd(data)
+	q.AddNodeAtBack(data)
 }
 
 func (q *Queue) Dequeue() (interface{}, error) {
