@@ -71,6 +71,7 @@ func (dll *DoublyLinkedList) RemoveNodeAtFront() (interface{}, error) {
 	}
 	returnVal := dll.first.data
 	dll.first = dll.first.next
+	dll.first.previous = nil
 	dll.NumOfNodes--
 	return returnVal, nil
 }
@@ -98,6 +99,7 @@ func (dll *DoublyLinkedList) RemoveNodeAtSpecified(nodeNum int) (interface{}, er
 	for currentNode != nil {
 		if i == nodeNum {
 			previousNode.next = currentNode.next
+			currentNode.previous = nil
 			dll.NumOfNodes--
 			return currentNode.data, nil
 		}
