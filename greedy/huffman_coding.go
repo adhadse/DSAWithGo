@@ -36,6 +36,7 @@ func PrintHuffmanNodes(node *HuffmanNode, val string) {
 
 func HuffmanCode(characters []rune, frequencies []int) []*HuffmanNode {
 	var nodes []*HuffmanNode
+
 	// Converting characters and frequencies into
 	// huffman tree nodes
 	for i := range characters {

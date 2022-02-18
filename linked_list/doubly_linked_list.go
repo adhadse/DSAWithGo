@@ -55,6 +55,7 @@ func (dll *DoublyLinkedList) AddNodeAtSpecified(data interface{}, afterNode int)
 	for i := 1; i <= int(dll.NumOfNodes) && currentNode != nil; i++ {
 		if i == afterNode {
 			newNode := &DoublyNode{next: currentNode.next, previous: currentNode.previous, data: data}
+			currentNode.next.previous = newNode
 			currentNode.next = newNode
 			dll.NumOfNodes++
 			return
