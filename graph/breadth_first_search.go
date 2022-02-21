@@ -4,7 +4,7 @@ import (
 	"DSA/queue"
 )
 
-func (g AdjacencyList) BFS(source, destination interface{}) (bool, error) {
+func (g Graph) BFS(source, destination interface{}) (bool, error) {
 	// Queue to ask next node for their adjacency
 	nextNodeQueue := queue.MakeQueue()
 	// Hashmap to tell which nodes are visited

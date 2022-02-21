@@ -6,7 +6,7 @@ package graph
 // 	- `source`: source vertex
 //  - `destination`: destination vertex
 //  - `asked`: a set of all nodes that are already checked
-func (g *AdjacencyList) DFS(source, destination interface{}, asked ...interface{}) bool {
+func (g *Graph) DFS(source, destination interface{}, asked ...interface{}) bool {
 	if contains(asked, source) {
 		return false
 	}

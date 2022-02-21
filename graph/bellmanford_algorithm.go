@@ -32,7 +32,7 @@ import (
 //	    for edge := graph.edges:
 //        if D[edge.from] + edge.cost < D[edge.to]:
 //          D[edge.to] = -inf
-func (g *DiAdjacencyListWithWeightedNodes) BellmanFord(src int) []float64 {
+func (g *DiGraphWithEdgeWeight) BellmanFord(src int) []float64 {
 	dist := make([]float64, g.numOfVertices)
 
 	for i := range dist {
