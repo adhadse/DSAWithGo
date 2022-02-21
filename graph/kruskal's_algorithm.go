@@ -19,7 +19,7 @@ func (g AdjacencyListWithWeightedNodes) KruskalMinimumSpanningTree() {
 	var parent []int
 	var rank []int
 	i, e := 0, 0
-	graph := g.SortAdjacencyListBasedOnWeights()
+	graph := g.GetSortedEdgesBasedOnWeights()
 
 	for node := 0; node < g.numOfVertices; node++ {
 		parent = append(parent, node)

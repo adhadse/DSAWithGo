@@ -14,7 +14,7 @@ type NodeWithWeight struct {
 	next   *NodeWithWeight
 }
 
-func MakeAdjacencyListWithWeightedNodes(numOfVertices int) AdjacencyListWithWeightedNodes {
+func MakeGraphWithWeightedEdge(numOfVertices int) AdjacencyListWithWeightedNodes {
 	g := AdjacencyListWithWeightedNodes{
 		adjacencyList: make([]*NodeWithWeight, numOfVertices),
 		numOfVertices: numOfVertices}
@@ -41,7 +41,7 @@ func (g *AdjacencyListWithWeightedNodes) appendWeight(weight int) {
 	g.weights = append(g.weights, weight)
 }
 
-// SortAdjacencyListBasedOnWeights get a 2 diensional slice with all
+// GetSortedEdgesBasedOnWeights get a 2 dimensional slice with all
 // possible combination (repeating edges) of edges from one node to another sorted in order of weights.
 //
 // For Example for adjacency list (a linked list):
@@ -54,7 +54,7 @@ func (g *AdjacencyListWithWeightedNodes) appendWeight(weight int) {
 //   [C, A, 2],
 //	 [B, A, 5],
 //   [A, B, 5] ]
-func (g *AdjacencyListWithWeightedNodes) SortAdjacencyListBasedOnWeights() [][]int {
+func (g *AdjacencyListWithWeightedNodes) GetSortedEdgesBasedOnWeights() [][]int {
 	var sortedAdjacencyList [][]int
 	g.weights = sorting.InsertionSort(g.weights)
 	for _, weight := range g.weights {
