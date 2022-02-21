@@ -21,7 +21,7 @@ type Node struct {
 	next   *Node
 }
 
-func MakeAdjacencyList(numOfVertices int) AdjacencyList {
+func MakeGraph(numOfVertices int) AdjacencyList {
 	g := AdjacencyList{
 		adjacencyList: make(map[interface{}]*Node, numOfVertices),
 		numOfVertices: numOfVertices}

@@ -16,7 +16,7 @@ func TestAdjacencyMatrix(t *testing.T) {
 }
 
 func TestAdjacencyList(t *testing.T) {
-	graph := MakeAdjacencyList(5)
+	graph := MakeGraph(5)
 	graph.AddEdge(0, 1)
 	graph.AddEdge(0, 4)
 	graph.AddEdge(1, 2)
@@ -31,7 +31,7 @@ func TestAdjacencyList(t *testing.T) {
 // Should Print:
 // Adjacency List of vertex 1| head -> 4 -> 3 -> 2 -> 0
 func TestAdjacencyList_GetAdjacencyList(t *testing.T) {
-	graph := MakeAdjacencyList(5)
+	graph := MakeGraph(5)
 	graph.AddEdge(0, 1)
 	graph.AddEdge(0, 4)
 	graph.AddEdge(1, 2)
@@ -50,7 +50,7 @@ func TestAdjacencyList_GetAdjacencyList(t *testing.T) {
 }
 
 func TestAdjacencyList_BFS(t *testing.T) {
-	graph := MakeAdjacencyList(5)
+	graph := MakeGraph(5)
 	graph.AddEdge(0, 1)
 	graph.AddEdge(0, 4)
 	graph.AddEdge(1, 2)
@@ -80,7 +80,7 @@ func TestAdjacencyList_BFS(t *testing.T) {
 }
 
 func TestAdjacencyList_DFS(t *testing.T) {
-	graph := MakeAdjacencyList(5)
+	graph := MakeGraph(5)
 	graph.AddEdge(0, 1)
 	graph.AddEdge(0, 4)
 	graph.AddEdge(1, 2)
@@ -92,7 +92,7 @@ func TestAdjacencyList_DFS(t *testing.T) {
 }
 
 func TestAdjacencyListWithWeightedNodes_KruskalMinimumSpanningTree(t *testing.T) {
-	graph := MakeAdjacencyListWithWeightedNodes(4)
+	graph := MakeGraphWithWeightedEdge(4)
 	graph.AddEdge(0, 1, 10)
 	graph.AddEdge(0, 2, 6)
 	graph.AddEdge(0, 3, 5)
@@ -100,4 +100,18 @@ func TestAdjacencyListWithWeightedNodes_KruskalMinimumSpanningTree(t *testing.T)
 	graph.AddEdge(2, 3, 4)
 
 	graph.KruskalMinimumSpanningTree()
+}
+
+func TestDiAdjacencyListWithWeightedNodes_BellmanFord(t *testing.T) {
+	g := MakeDiGraphWithWeightedEdge(5)
+
+	g.AddEdge(0, 1, -1)
+	g.AddEdge(0, 2, 4)
+	g.AddEdge(1, 2, 3)
+	g.AddEdge(1, 3, 2)
+	g.AddEdge(1, 4, 2)
+	g.AddEdge(3, 2, 5)
+	g.AddEdge(3, 1, 1)
+	g.AddEdge(4, 3, -3)
+	g.BellmanFord(0)
 }
