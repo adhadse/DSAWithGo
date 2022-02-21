@@ -1,24 +1,24 @@
 package graph
 
-type DiAdjacencyListWithWeightedNodes struct {
-	AdjacencyListWithWeightedNodes
+type DiGraphWithEdgeWeight struct {
+	GraphWithEdgeWeight
 }
 
-func MakeDiGraphWithWeightedEdge(numOfVertices int) DiAdjacencyListWithWeightedNodes {
-	g := DiAdjacencyListWithWeightedNodes{
-		AdjacencyListWithWeightedNodes: MakeGraphWithWeightedEdge(numOfVertices),
+func MakeDiGraphWithWeightedEdge(numOfVertices int) DiGraphWithEdgeWeight {
+	g := DiGraphWithEdgeWeight{
+		GraphWithEdgeWeight: MakeGraphWithWeightedEdge(numOfVertices),
 	}
 	return g
 }
 
-func (g *DiAdjacencyListWithWeightedNodes) AddEdge(src, dest, weight int) {
+func (g *DiGraphWithEdgeWeight) AddEdge(src, dest, weight int) {
 	destNode := &NodeWithWeight{vertex: dest, weight: weight, next: g.adjacencyList[src]}
 	g.adjacencyList[src] = destNode
 
 	g.appendWeight(weight)
 }
 
-func (g *DiAdjacencyListWithWeightedNodes) Edges() [][]int {
+func (g *DiGraphWithEdgeWeight) Edges() [][]int {
 	var edges [][]int
 	for forNode := 0; forNode < g.numOfVertices; forNode++ {
 		temp := g.adjacencyList[forNode]

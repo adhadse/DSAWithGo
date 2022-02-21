@@ -14,7 +14,7 @@ import "fmt"
 //    else:
 // 			we include/unify the nodes to one group
 // 3. Terminate when every edge has been processed OR all vertices have been unified
-func (g AdjacencyListWithWeightedNodes) KruskalMinimumSpanningTree() {
+func (g GraphWithEdgeWeight) KruskalMinimumSpanningTree() {
 	var result [][]int
 	var parent []int
 	var rank []int

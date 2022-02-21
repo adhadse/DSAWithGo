@@ -2,7 +2,7 @@ package graph
 
 import "DSA/sorting"
 
-type AdjacencyListWithWeightedNodes struct {
+type GraphWithEdgeWeight struct {
 	numOfVertices int
 	weights       []int
 	adjacencyList []*NodeWithWeight
@@ -14,14 +14,14 @@ type NodeWithWeight struct {
 	next   *NodeWithWeight
 }
 
-func MakeGraphWithWeightedEdge(numOfVertices int) AdjacencyListWithWeightedNodes {
-	g := AdjacencyListWithWeightedNodes{
+func MakeGraphWithWeightedEdge(numOfVertices int) GraphWithEdgeWeight {
+	g := GraphWithEdgeWeight{
 		adjacencyList: make([]*NodeWithWeight, numOfVertices),
 		numOfVertices: numOfVertices}
 	return g
 }
 
-func (g *AdjacencyListWithWeightedNodes) AddEdge(src, dest, weight int) {
+func (g *GraphWithEdgeWeight) AddEdge(src, dest, weight int) {
 	destNode := &NodeWithWeight{vertex: dest, weight: weight, next: g.adjacencyList[src]}
 	g.adjacencyList[src] = destNode
 
@@ -32,7 +32,7 @@ func (g *AdjacencyListWithWeightedNodes) AddEdge(src, dest, weight int) {
 }
 
 // appendWeight append unique weight to g.weights
-func (g *AdjacencyListWithWeightedNodes) appendWeight(weight int) {
+func (g *GraphWithEdgeWeight) appendWeight(weight int) {
 	for i := range g.weights {
 		if g.weights[i] == weight {
 			return
@@ -54,7 +54,7 @@ func (g *AdjacencyListWithWeightedNodes) appendWeight(weight int) {
 //   [C, A, 2],
 //	 [B, A, 5],
 //   [A, B, 5] ]
-func (g *AdjacencyListWithWeightedNodes) GetSortedEdgesBasedOnWeights() [][]int {
+func (g *GraphWithEdgeWeight) GetSortedEdgesBasedOnWeights() [][]int {
 	var sortedAdjacencyList [][]int
 	g.weights = sorting.InsertionSort(g.weights)
 	for _, weight := range g.weights {
@@ -71,7 +71,7 @@ func (g *AdjacencyListWithWeightedNodes) GetSortedEdgesBasedOnWeights() [][]int 
 	return sortedAdjacencyList
 }
 
-func (g *AdjacencyListWithWeightedNodes) GetAdjacencyList(forNode int) []*NodeWithWeight {
+func (g *GraphWithEdgeWeight) GetAdjacencyList(forNode int) []*NodeWithWeight {
 	var adjacencyList []*NodeWithWeight
 	temp := g.adjacencyList[forNode]
 	for temp != nil {
@@ -87,7 +87,7 @@ func (g *AdjacencyListWithWeightedNodes) GetAdjacencyList(forNode int) []*NodeWi
 // https://youtu.be/ibjEGG7ylHk
 
 // Find finds the group the Node belongs to
-func (g *AdjacencyListWithWeightedNodes) Find(parent []int, i int) int {
+func (g *GraphWithEdgeWeight) Find(parent []int, i int) int {
 	if parent[i] == i {
 		return i
 	}
@@ -95,7 +95,7 @@ func (g *AdjacencyListWithWeightedNodes) Find(parent []int, i int) int {
 }
 
 // Union merges two groups of Nodes together
-func (g *AdjacencyListWithWeightedNodes) Union(parent, rank []int, group1, group2 int) ([]int, []int) {
+func (g *GraphWithEdgeWeight) Union(parent, rank []int, group1, group2 int) ([]int, []int) {
 	xRoot := g.Find(parent, group1)
 	yRoot := g.Find(parent, group2)
 

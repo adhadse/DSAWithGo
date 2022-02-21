@@ -2,7 +2,7 @@ package graph
 
 import "fmt"
 
-// AdjacencyList is a collection of unordered list (here linked lists)
+// Graph is a collection of unordered list (here linked lists)
 // to represent a finite graph.
 // Each index of adjacencyList is a linked list storing nodes approachable by
 // this index value with each node storing next node address, i.e.,
@@ -11,7 +11,7 @@ import "fmt"
 // [ 2 ]
 // [ 3 ]
 // [ 4 ] : 0       (means 4 has an edge to 0)
-type AdjacencyList struct {
+type Graph struct {
 	numOfVertices int
 	adjacencyList map[interface{}]*Node
 }
@@ -21,14 +21,14 @@ type Node struct {
 	next   *Node
 }
 
-func MakeGraph(numOfVertices int) AdjacencyList {
-	g := AdjacencyList{
+func MakeGraph(numOfVertices int) Graph {
+	g := Graph{
 		adjacencyList: make(map[interface{}]*Node, numOfVertices),
 		numOfVertices: numOfVertices}
 	return g
 }
 
-func (g AdjacencyList) AddEdge(src, dest interface{}) {
+func (g Graph) AddEdge(src, dest interface{}) {
 	destNode := &Node{vertex: dest, next: g.adjacencyList[src]}
 	g.adjacencyList[src] = destNode
 
@@ -36,7 +36,7 @@ func (g AdjacencyList) AddEdge(src, dest interface{}) {
 	g.adjacencyList[dest] = srcNode
 }
 
-func (g AdjacencyList) GetAdjacencyList(forNode interface{}) []*Node {
+func (g Graph) GetAdjacencyList(forNode interface{}) []*Node {
 	var adjacencyList []*Node
 	temp := g.adjacencyList[forNode]
 	for temp != nil {
@@ -46,7 +46,7 @@ func (g AdjacencyList) GetAdjacencyList(forNode interface{}) []*Node {
 	return adjacencyList
 }
 
-func (g AdjacencyList) PrintAdjacencyList() {
+func (g Graph) PrintAdjacencyList() {
 	for i := 0; i < g.numOfVertices; i++ {
 		fmt.Printf("Adjacency List of vertex %d| head", i)
 		temp := g.adjacencyList[i]
