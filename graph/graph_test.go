@@ -91,8 +91,8 @@ func TestGraph_DFS(t *testing.T) {
 	}
 }
 
-func TestGraphWithEdgeWeight_KruskalMinimumSpanningTree(t *testing.T) {
-	graph := MakeGraphWithWeightedEdge(4)
+func TestWeightedGraph_KruskalMinimumSpanningTree(t *testing.T) {
+	graph := MakeWeightedGraph(4)
 	graph.AddEdge(0, 1, 10)
 	graph.AddEdge(0, 2, 6)
 	graph.AddEdge(0, 3, 5)
@@ -102,8 +102,8 @@ func TestGraphWithEdgeWeight_KruskalMinimumSpanningTree(t *testing.T) {
 	graph.KruskalMinimumSpanningTree()
 }
 
-func TestDiGraphWithEdgeWeight_BellmanFord(t *testing.T) {
-	g := MakeDiGraphWithWeightedEdge(5)
+func TestDiWeightedGraph_BellmanFord(t *testing.T) {
+	g := MakeDiWeightedGraph(5)
 
 	g.AddEdge(0, 1, -1)
 	g.AddEdge(0, 2, 4)
@@ -113,5 +113,6 @@ func TestDiGraphWithEdgeWeight_BellmanFord(t *testing.T) {
 	g.AddEdge(3, 2, 5)
 	g.AddEdge(3, 1, 1)
 	g.AddEdge(4, 3, -3)
+
 	g.BellmanFord(0)
 }
