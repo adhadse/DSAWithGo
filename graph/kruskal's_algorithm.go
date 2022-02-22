@@ -5,6 +5,7 @@ import "fmt"
 // A Minimum Spanning Tree is a subset of the edges
 // which connect all vertices in the graph with the
 // minimal total edge cost
+// https://youtu.be/JZBQLXgSGfs
 
 // KruskalMinimumSpanningTree finds a MST by:
 // 1. Sort edges by ascending edge weight
