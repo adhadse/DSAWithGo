@@ -9,6 +9,7 @@ import (
 // in a directed graph. It's main advantage over Dijkstra is where Dijkstra
 // doesn't work with negative edge weights, BellmanFord does. Although at
 // the cost of worse time complexity of O(EV).
+// https://youtu.be/lyw4FaxrwHg
 //
 // Algorithm:
 // Let's define a few variables:
