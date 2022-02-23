@@ -1,6 +1,8 @@
 package graph
 
-import "DSA/sorting"
+import (
+	"DSA/sorting"
+)
 
 type WeightedGraph struct {
 	numOfVertices int

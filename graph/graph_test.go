@@ -116,3 +116,24 @@ func TestDiWeightedGraph_BellmanFord(t *testing.T) {
 
 	g.BellmanFord(0)
 }
+
+func TestWeightedGraph_Dijkstra(t *testing.T) {
+	g := MakeWeightedGraph(7)
+
+	g.AddEdge(0, 1, 2)
+	g.AddEdge(0, 2, 3)
+
+	g.AddEdge(1, 2, 2)
+	g.AddEdge(1, 3, 3)
+	g.AddEdge(1, 4, 6)
+	g.AddEdge(1, 6, 5)
+
+	g.AddEdge(2, 3, 1)
+	g.AddEdge(2, 5, 4)
+
+	g.AddEdge(3, 4, 2)
+	g.AddEdge(5, 4, 1)
+	g.AddEdge(6, 4, 2)
+
+	g.Dijkstra(0, 4)
+}
