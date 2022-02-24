@@ -1,7 +1,7 @@
 # DSAWithGo <img width=100 src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg"/>
 A DSA repository but everything is in Go. Leave a star🌟if you love Go and like this repository.💫
 
-Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisisshub](https://github.com/thisisshub/) (many... but not all, I tweaked some :)
+Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisisshub](https://github.com/thisisshub/) with some tweaks, and new implementation for others  :)
 
 # Contents 📃
 1. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)

@@ -23,7 +23,7 @@ import (
 func (g *WeightedGraph) Dijkstra(source, destination int) {
 	dist := make([]int, g.numOfVertices)
 	visited := make([]bool, g.numOfVertices)
-	followedBy := make([]int, g.numOfVertices)
+	followedBy := make([]int, g.numOfVertices) // Keep tracks of what previous node led to this node
 	for i := range dist {
 		dist[i] = math.MaxInt64
 	}
@@ -31,42 +31,45 @@ func (g *WeightedGraph) Dijkstra(source, destination int) {
 	visited[source] = true
 
 	node := g.adjacencyList[source]
-	previouslyVisited := source
+	currentlyVisited := source
 	nextToVisit := node.vertex
 
-	for {
+	for source != destination {
 		for node != nil {
 			// Update estimates if found smaller value than current estimate.
-			if dist[previouslyVisited]+node.weight < dist[node.vertex] &&
+			if dist[currentlyVisited]+node.weight < dist[node.vertex] &&
 				visited[node.vertex] == false {
-				dist[node.vertex] = dist[previouslyVisited] + node.weight
-				followedBy[node.vertex] = previouslyVisited
+				dist[node.vertex] = dist[currentlyVisited] + node.weight
+				followedBy[node.vertex] = currentlyVisited
 			}
 
 			// Choose next 'UNEXPLORED' vertex with the smallest estimate
-			if dist[node.vertex] < dist[nextToVisit] && visited[node.vertex] == false {
+			if nextToVisit == currentlyVisited && visited[node.vertex] == false ||
+				dist[node.vertex] < dist[nextToVisit] &&
+					nextToVisit != currentlyVisited &&
+					visited[node.vertex] == false {
 				nextToVisit = node.vertex
 			}
 			node = node.next
 		}
-		if nextToVisit == destination {
+		if nextToVisit == destination || nextToVisit == currentlyVisited {
 			break
 		}
 		node = g.adjacencyList[nextToVisit]
-		previouslyVisited = nextToVisit
+		currentlyVisited = nextToVisit
 		visited[nextToVisit] = true
-		nextToVisit = node.vertex
 	}
+	// print result
 	fmt.Printf("Shortest path distance from %d -> %d is: %d\n", source, destination, dist[destination])
 
 	var path []int
 	intermediate := destination
-	for {
-		intermediate = followedBy[intermediate]
-		path = append(path, intermediate)
-		if followedBy[intermediate] == 0 {
+	for source != destination {
+		if followedBy[intermediate] == source {
 			break
 		}
+		intermediate = followedBy[intermediate]
+		path = append(path, intermediate)
 	}
 	fmt.Printf("Path Followed: %d ->", source)
 	for i := len(path) - 1; i >= 0; i-- {

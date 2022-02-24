@@ -111,3 +111,14 @@ func (g *WeightedGraph) Union(parent, rank []int, group1, group2 int) ([]int, []
 	}
 	return parent, rank
 }
+
+func (g *WeightedGraph) getDistance(from, to int) int {
+	temp := g.adjacencyList[from]
+	for temp != nil {
+		if temp.vertex == to {
+			return temp.weight
+		}
+		temp = temp.next
+	}
+	return 0
+}
