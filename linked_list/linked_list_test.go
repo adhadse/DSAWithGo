@@ -221,3 +221,118 @@ func TestDoublyLinkedList_RemoveNodeWithValue(t *testing.T) {
 
 	ll.PrintLinkedList()
 }
+
+// Circular list test
+func TestCircularLinkedList_AddNodeAtFront_OneItem(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	ll.AddNodeAtFront(2)
+	ll.PrintLinkedList()
+}
+
+func TestCircularLinkedList_AddNodeAtFront_MultipleItem(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(1)
+	ll.PrintLinkedList()
+}
+
+func TestCircularLinkedList_AddNodeAtBack(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	ll.AddNodeAtBack(2)
+	ll.AddNodeAtBack(1)
+	ll.PrintLinkedList()
+}
+
+func TestCircularLinkedList_AddNodeAtSpecified(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	ll.AddNodeAtSpecified(-1, 0) // As the first node
+
+	ll.AddNodeAtFront(4)
+	ll.AddNodeAtFront(3)
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(1)
+
+	ll.AddNodeAtSpecified(32, 3) // after node with value 3
+	ll.AddNodeAtSpecified(42, 6) // at end of linked list
+
+	ll.PrintLinkedList()
+}
+
+func TestCircularLinkedList_RemoveNodeAtFront(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	_, err := ll.RemoveNodeAtFront()
+	if err != nil {
+		fmt.Println(err) // Should print "UNDERFLOW" as linked list is empty
+		//return         // Or you can handle your way
+	}
+
+	ll.AddNodeAtFront(4)
+	ll.AddNodeAtFront(3)
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(1)
+
+	ll.RemoveNodeAtFront() // Delete node 1
+	ll.RemoveNodeAtFront() // Delete node 2
+	ll.RemoveNodeAtFront() // Delete node 3
+
+	ll.PrintLinkedList()
+}
+
+func TestCircularLinkedList_RemoveNodeAtBack(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	_, err := ll.RemoveNodeAtBack()
+	if err != nil {
+		fmt.Println(err) // Should print "UNDERFLOW" as linked list is empty
+		//return         // Or you can handle your way
+	}
+
+	ll.AddNodeAtFront(4)
+	ll.AddNodeAtFront(3)
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(1)
+
+	ll.RemoveNodeAtBack() // Delete node 4
+	ll.RemoveNodeAtBack() // Delete node 3
+	ll.RemoveNodeAtBack() // Delete node 2
+
+	ll.PrintLinkedList()
+}
+
+func TestCircLinkedList_RemoveNodeAtSpecified(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	_, err := ll.RemoveNodeAtSpecified(0)
+	if err != nil {
+		fmt.Println(err) // Should print "UNDERFLOW" as linked list is empty
+		//return         // Or you can handle your way
+	}
+
+	ll.AddNodeAtFront(4)
+	ll.AddNodeAtFront(3)
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(1)
+
+	ll.RemoveNodeAtSpecified(2) // after node with value 2
+	ll.RemoveNodeAtSpecified(3) // at end of linked list with value 4
+
+	ll.PrintLinkedList()
+}
+
+func TestCircularLinkedList_RemoveNodeWithValue(t *testing.T) {
+	ll := MakeCircularLinkedList()
+	err := ll.RemoveNodeWithValue(1)
+	if err != nil {
+		fmt.Println(err) // Should print "Linked list is empty" as error
+		//return         // Or you can handle your way
+	}
+	ll.AddNodeAtFront(4)
+	ll.AddNodeAtFront(3)
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(2)
+	ll.AddNodeAtFront(1)
+
+	ll.RemoveNodeWithValue(4)
+	ll.RemoveNodeWithValue(2)
+
+	ll.PrintLinkedList()
+}

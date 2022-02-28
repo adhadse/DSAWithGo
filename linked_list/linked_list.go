@@ -25,42 +25,42 @@ func MakeLinkedList() LinkedList {
 	return LinkedList{first: nil, last: nil}
 }
 
-func (dll *LinkedList) AddNodeAtFront(data interface{}) {
-	oldFirst := dll.first
-	dll.first = &Node{data: data, next: oldFirst}
-	if dll.last == nil {
+func (ll *LinkedList) AddNodeAtFront(data interface{}) {
+	oldFirst := ll.first
+	ll.first = &Node{data: data, next: oldFirst}
+	if ll.last == nil {
 		// When last pointer is null
 		// and only inserting at front; last is null
 		// AddNodeAtBack don't work without this
-		dll.last = dll.first
+		ll.last = ll.first
 	}
-	dll.NumOfNodes++
+	ll.NumOfNodes++
 }
 
-func (dll *LinkedList) AddNodeAtBack(data interface{}) {
+func (ll *LinkedList) AddNodeAtBack(data interface{}) {
 	newLast := &Node{data: data, next: nil}
-	if dll.first == nil {
-		dll.first = newLast // if no node in link list
+	if ll.first == nil {
+		ll.first = newLast // if no node in link list
 	} else {
 		// else add new last node pointer to old last instead of nil
-		dll.last.next = newLast
+		ll.last.next = newLast
 	}
-	dll.last = newLast
-	dll.NumOfNodes++
+	ll.last = newLast
+	ll.NumOfNodes++
 }
 
-func (dll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
-	currentNode := dll.first
+func (ll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
+	currentNode := ll.first
 	if afterNode <= 0 {
 		// if insertion never happened previously
-		dll.AddNodeAtFront(data)
+		ll.AddNodeAtFront(data)
 		return
 	}
-	for i := 1; i <= int(dll.NumOfNodes) && currentNode != nil; i++ {
+	for i := 1; i <= int(ll.NumOfNodes) && currentNode != nil; i++ {
 		if i == afterNode {
 			newNode := &Node{data: data, next: currentNode.next}
 			currentNode.next = newNode
-			dll.NumOfNodes++
+			ll.NumOfNodes++
 			return
 		}
 		currentNode = currentNode.next
@@ -69,21 +69,21 @@ func (dll *LinkedList) AddNodeAtSpecified(data interface{}, afterNode int) {
 
 // Deletion
 
-func (dll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
-	if dll.NumOfNodes == 0 {
+func (ll *LinkedList) RemoveNodeAtFront() (interface{}, error) {
+	if ll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
-	returnVal := dll.first.data
-	dll.first = dll.first.next
-	dll.NumOfNodes--
+	returnVal := ll.first.data
+	ll.first = ll.first.next
+	ll.NumOfNodes--
 	return returnVal, nil
 }
 
-func (dll *LinkedList) RemoveNodeAtBack() (interface{}, error) {
-	if dll.NumOfNodes == 0 {
+func (ll *LinkedList) RemoveNodeAtBack() (interface{}, error) {
+	if ll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
-	currentNode := dll.first
+	currentNode := ll.first
 	var previousNode *Node = nil
 
 	// iterate over linked list
@@ -91,7 +91,7 @@ func (dll *LinkedList) RemoveNodeAtBack() (interface{}, error) {
 		if currentNode.next == nil {
 			// this is last node,
 			previousNode.next = nil
-			dll.NumOfNodes--
+			ll.NumOfNodes--
 			return currentNode.data, nil
 		}
 		previousNode = currentNode
@@ -100,17 +100,17 @@ func (dll *LinkedList) RemoveNodeAtBack() (interface{}, error) {
 	return nil, nil
 }
 
-func (dll *LinkedList) RemoveNodeAtSpecified(nodeNum int) (interface{}, error) {
-	if dll.NumOfNodes == 0 {
+func (ll *LinkedList) RemoveNodeAtSpecified(nodeNum int) (interface{}, error) {
+	if ll.NumOfNodes == 0 {
 		return nil, &LinkedListError{"UNDERFLOW"}
 	}
-	currentNode := dll.first
+	currentNode := ll.first
 	var previousNode *Node = nil
 	i := 1
 	for currentNode != nil {
 		if i == nodeNum {
 			previousNode.next = currentNode.next
-			dll.NumOfNodes--
+			ll.NumOfNodes--
 			return currentNode.data, nil
 		}
 		i += 1
@@ -120,17 +120,17 @@ func (dll *LinkedList) RemoveNodeAtSpecified(nodeNum int) (interface{}, error) {
 	return nil, nil
 }
 
-func (dll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
-	if dll.NumOfNodes == 0 {
+func (ll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
+	if ll.NumOfNodes == 0 {
 		return &LinkedListError{"Linked List is empty!"}
 	}
-	currentNode := dll.first
+	currentNode := ll.first
 	var previousNode *Node = nil
 
 	for currentNode != nil {
 		if currentNode.data == nodeValueToDelete {
 			previousNode.next = currentNode.next
-			dll.NumOfNodes--
+			ll.NumOfNodes--
 		}
 		previousNode = currentNode
 		currentNode = currentNode.next
@@ -138,8 +138,8 @@ func (dll *LinkedList) RemoveNodeWithValue(nodeValueToDelete int) error {
 	return nil
 }
 
-func (dll *LinkedList) PrintLinkedList() {
-	currentNode := dll.first
+func (ll *LinkedList) PrintLinkedList() {
+	currentNode := ll.first
 	count := 1
 	fmt.Println("first")
 	for currentNode != nil {
@@ -147,5 +147,5 @@ func (dll *LinkedList) PrintLinkedList() {
 		count++
 		currentNode = currentNode.next
 	}
-	fmt.Printf("Last | Num of Nodes: %d\n", dll.NumOfNodes)
+	fmt.Printf("Last | Num of Nodes: %d\n", ll.NumOfNodes)
 }
