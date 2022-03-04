@@ -135,5 +135,5 @@ func TestWeightedGraph_Dijkstra(t *testing.T) {
 	g.AddEdge(5, 4, 1)
 	g.AddEdge(6, 4, 2)
 
-	g.Dijkstra(0, 3)
+	g.DijkstraShortestPath(0, 4)
 }
