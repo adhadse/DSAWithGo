@@ -18,7 +18,18 @@ func (g *DiWeightedGraph) AddEdge(src, dest, weight int) {
 	g.appendWeight(weight)
 }
 
-func (g *DiWeightedGraph) Edges() [][]int {
+// edges returns a 2 dimensional slice with all
+// edges from one node to another in a graph.
+//
+// For Example for adjacency list (a linked list):
+// A -> (B, 5) -> (C, 2)
+// B ->
+// C ->
+//
+// Returns:
+// [ [A, B, 5],
+//   [A, C, 2] ]
+func (g *DiWeightedGraph) edges() [][]int {
 	var edges [][]int
 	for forNode := 0; forNode < g.numOfVertices; forNode++ {
 		temp := g.adjacencyList[forNode]

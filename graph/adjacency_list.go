@@ -36,6 +36,8 @@ func (g Graph) AddEdge(src, dest interface{}) {
 	g.adjacencyList[dest] = srcNode
 }
 
+// GetAdjacencyList returns a slice containing all nodes
+// adjacent to forNode
 func (g Graph) GetAdjacencyList(forNode interface{}) []*Node {
 	var adjacencyList []*Node
 	temp := g.adjacencyList[forNode]

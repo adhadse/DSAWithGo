@@ -43,7 +43,7 @@ func (g *DiWeightedGraph) BellmanFord(src int) []float64 {
 
 	for i := 0; i < g.numOfVertices-1; i++ {
 		// iterate over directed edges from jth vertex
-		for _, edge := range g.Edges() {
+		for _, edge := range g.edges() {
 			from, to, weight := edge[0], edge[1], edge[2]
 			if dist[from] != math.Inf(+1) && dist[from]+float64(weight) < dist[to] {
 				dist[to] = dist[from] + float64(weight)
@@ -52,7 +52,7 @@ func (g *DiWeightedGraph) BellmanFord(src int) []float64 {
 	}
 
 	// Repeat to find nodes caught in a negative cycle
-	for _, edge := range g.Edges() {
+	for _, edge := range g.edges() {
 		from, to, weight := edge[0], edge[1], edge[2]
 		if dist[from]+float64(weight) < dist[to] {
 			// Graph contains negative weight cycles
