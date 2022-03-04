@@ -6,7 +6,7 @@ import (
 )
 
 // BellmanFord is a shortest path algorithm
-// in a directed graph. It's main advantage over Dijkstra is where Dijkstra
+// in a directed graph. It's main advantage over DijkstraShortestPath is where DijkstraShortestPath
 // doesn't work with negative edge weights, BellmanFord does. Although at
 // the cost of worse time complexity of O(EV).
 // https://youtu.be/lyw4FaxrwHg

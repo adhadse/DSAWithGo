@@ -5,13 +5,13 @@ import (
 	"math"
 )
 
-// Dijkstra algorithm find the shortest path and lowest cost
+// DijkstraShortestPath find the shortest path and lowest cost
 // from one node to all other node given a source node with an amazing
 // time complexity of O((V+E)log(V)) but only works if weights are non-negative.
 // https://youtu.be/EFg3u_E6eHU
 //
 // Algorithm:
-// 	- 1. Label each node with the shortest time found so far,
+// 	- 1. Label each node with the shortest path found so far,
 //		 In beginning wih 0 for source and other with '∞'.
 //  - 2. Mark src as 'EXPLORED' and other as 'UNEXPLORED'
 //  - 3. Loop until reached destination node:
@@ -19,8 +19,7 @@ import (
 //       - Keep track of what previous node visited to get to this node.
 //         Which nodes led to this shortest path.
 //       - Choose next 'UNEXPLORED' vertex with the smallest estimate
-
-func (g *WeightedGraph) Dijkstra(source, destination int) {
+func (g *WeightedGraph) DijkstraShortestPath(source, destination int) {
 	dist := make([]int, g.numOfVertices)
 	visited := make([]bool, g.numOfVertices)
 	followedBy := make([]int, g.numOfVertices) // Keep tracks of what previous node led to this node
@@ -44,6 +43,8 @@ func (g *WeightedGraph) Dijkstra(source, destination int) {
 			}
 
 			// Choose next 'UNEXPLORED' vertex with the smallest estimate
+			// First of OR condition checks when you visit nextToVisit
+			// currentlyVisited becomes nextToVisit; that mean nextToVisit is not known now
 			if nextToVisit == currentlyVisited && visited[node.vertex] == false ||
 				dist[node.vertex] < dist[nextToVisit] &&
 					nextToVisit != currentlyVisited &&
@@ -52,6 +53,8 @@ func (g *WeightedGraph) Dijkstra(source, destination int) {
 			}
 			node = node.next
 		}
+		// Second condition of OR applies when we are not able to choose next 'UNEXPLORED'
+		// node; i.e., we reached a node from where all nodes are already visited
 		if nextToVisit == destination || nextToVisit == currentlyVisited {
 			break
 		}
@@ -59,9 +62,15 @@ func (g *WeightedGraph) Dijkstra(source, destination int) {
 		currentlyVisited = nextToVisit
 		visited[nextToVisit] = true
 	}
+
 	// print result
 	fmt.Printf("Shortest path distance from %d -> %d is: %d\n", source, destination, dist[destination])
 
+	// Path finding using followedBy can be done by reverse iterating starting
+	// from destination by indexing it and then keep indexing the intermediate
+	// value until reached source: src(4) dest(0) => 4->3->2->0
+	// index: 0 1 2 3 4 5 6
+	// value: 0 0 0 2 3 2 1
 	var path []int
 	intermediate := destination
 	for source != destination {
