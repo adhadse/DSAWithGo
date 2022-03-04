@@ -30,7 +30,7 @@ func CycleSort(list []int) ([]int, int) {
 		// Rotate the rest of the cycle
 		for position != cycleStart {
 			position = cycleStart
-			// Find position where to put the element
+			// find position where to put the element
 			for i := cycleStart + 1; i < len(list); i++ {
 				if list[i] < item {
 					position++

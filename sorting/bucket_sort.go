@@ -6,7 +6,7 @@ package sorting
 // At last, we join them to set sorted array.
 // Not designed for negative numbers.
 func BucketSort(list []int) []int {
-	// Find max element and use length of list to determine
+	// find max element and use length of list to determine
 	// which value in list goes into which bucket
 	max := list[0]
 	for i := range list {

@@ -21,7 +21,7 @@ func (g WeightedGraph) KruskalMinimumSpanningTree() {
 	var parent []int
 	var rank []int
 	i, e := 0, 0
-	graph := g.GetSortedEdgesBasedOnWeights()
+	graph := g.getSortedEdgesBasedOnWeights()
 
 	for node := 0; node < g.numOfVertices; node++ {
 		parent = append(parent, node)
@@ -29,17 +29,17 @@ func (g WeightedGraph) KruskalMinimumSpanningTree() {
 	}
 
 	for e < g.numOfVertices-1 {
-		// Dammit, Find the group?
+		// Dammit, find the group?
 		edge := graph[i]
 		i++
-		group1 := g.Find(parent, edge[0])
-		group2 := g.Find(parent, edge[1])
+		group1 := g.find(parent, edge[0])
+		group2 := g.find(parent, edge[1])
 
 		if group1 != group2 {
 			// if the nodes do not belong to same group; UNIFY THEM!!!
 			e++
 			result = append(result, []int{edge[0], edge[1], edge[2]})
-			parent, rank = g.Union(parent, rank, group1, group2)
+			parent, rank = g.union(parent, rank, group1, group2)
 		}
 	}
 	minimumCost := 0

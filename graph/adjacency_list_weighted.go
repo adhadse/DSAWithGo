@@ -43,7 +43,7 @@ func (g *WeightedGraph) appendWeight(weight int) {
 	g.weights = append(g.weights, weight)
 }
 
-// GetSortedEdgesBasedOnWeights get a 2 dimensional slice with all
+// getSortedEdgesBasedOnWeights get a 2 dimensional slice with all
 // possible combination (repeating edges) of edges from one node to another sorted in order of weights.
 //
 // For Example for adjacency list (a linked list):
@@ -56,7 +56,7 @@ func (g *WeightedGraph) appendWeight(weight int) {
 //   [C, A, 2],
 //	 [B, A, 5],
 //   [A, B, 5] ]
-func (g *WeightedGraph) GetSortedEdgesBasedOnWeights() [][]int {
+func (g *WeightedGraph) getSortedEdgesBasedOnWeights() [][]int {
 	var sortedAdjacencyList [][]int
 	g.weights = sorting.InsertionSort(g.weights)
 	for _, weight := range g.weights {
@@ -85,23 +85,23 @@ func (g *WeightedGraph) GetAdjacencyList(forNode int) []*NodeWithWeight {
 	return adjacencyList
 }
 
-// Union Find is a data structure that keeps tracks of
+// union find is a data structure that keeps tracks of
 // elements which are split into one or more disjoint sets.
-// It's two primary operations are Union and Find.
+// It's two primary operations are union and find.
 // https://youtu.be/ibjEGG7ylHk
 
-// Find finds the group the Node belongs to
-func (g *WeightedGraph) Find(parent []int, i int) int {
+// find finds the group the Node belongs to
+func (g *WeightedGraph) find(parent []int, i int) int {
 	if parent[i] == i {
 		return i
 	}
-	return g.Find(parent, parent[i])
+	return g.find(parent, parent[i])
 }
 
-// Union merges two groups of Nodes together
-func (g *WeightedGraph) Union(parent, rank []int, group1, group2 int) ([]int, []int) {
-	xRoot := g.Find(parent, group1)
-	yRoot := g.Find(parent, group2)
+// union merges two groups of Nodes together
+func (g *WeightedGraph) union(parent, rank []int, group1, group2 int) ([]int, []int) {
+	xRoot := g.find(parent, group1)
+	yRoot := g.find(parent, group2)
 
 	if rank[xRoot] < rank[yRoot] {
 		parent[xRoot] = yRoot
