@@ -5,7 +5,7 @@ import "fmt"
 // A Minimum Spanning Tree is a subset of the edges
 // which connect all vertices in the graph with the
 // minimal total edge cost with no cycles (otherwise it is not tree)
-// Time complexity: O(E logE) where E is the no. of Edges
+// Time complexity: O(E logE) where E is the no. of edges
 // https://youtu.be/JZBQLXgSGfs
 
 // KruskalMinimumSpanningTree finds a MST by:
@@ -43,7 +43,7 @@ func (g WeightedGraph) KruskalMinimumSpanningTree() {
 		}
 	}
 	minimumCost := 0
-	fmt.Println("Edges in the constructed MST")
+	fmt.Println("edges in the constructed MST")
 	for _, edge := range result {
 		minimumCost += edge[2]
 		fmt.Printf("%d -- %d == %d\n", edge[0], edge[1], edge[2])

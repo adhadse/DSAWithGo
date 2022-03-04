@@ -73,6 +73,8 @@ func (g *WeightedGraph) GetSortedEdgesBasedOnWeights() [][]int {
 	return sortedAdjacencyList
 }
 
+// GetAdjacencyList returns a slice containing all nodes
+// adjacent to forNode
 func (g *WeightedGraph) GetAdjacencyList(forNode int) []*NodeWithWeight {
 	var adjacencyList []*NodeWithWeight
 	temp := g.adjacencyList[forNode]
@@ -112,6 +114,8 @@ func (g *WeightedGraph) Union(parent, rank []int, group1, group2 int) ([]int, []
 	return parent, rank
 }
 
+// getDistance returns the distance (edge weight) from
+// one node to another
 func (g *WeightedGraph) getDistance(from, to int) int {
 	temp := g.adjacencyList[from]
 	for temp != nil {
