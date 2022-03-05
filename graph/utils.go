@@ -12,6 +12,7 @@ func contains(slice []interface{}, element interface{}) bool {
 }
 
 // EdgePriorityQueue for Prim's algorithm
+// Check Priority queue in queue package
 type EdgePriorityQueue struct {
 	queue []Edge
 }
@@ -41,19 +42,16 @@ func (pq *EdgePriorityQueue) dequeue() Edge {
 }
 
 func (pq *EdgePriorityQueue) heapify(root, end int) {
-	left := 2*root + 1  // left child index of root node
-	right := 2*root + 2 // right child index of root node
-	min := root         // initialize smallest as root
+	left := 2*root + 1
+	right := 2*root + 2
+	min := root
 
-	// If left child of root exists and is greater than root/min node
 	if left < end && pq.queue[left].weight < pq.queue[min].weight {
 		min = left
 	}
-	// If right child of root exists and is greater than root/min node
 	if right < end && pq.queue[right].weight < pq.queue[min].weight {
 		min = right
 	}
-	// if min is left or right child, exchange root with min
 	if min != root {
 		pq.queue[root], pq.queue[min] = pq.queue[min], pq.queue[root]
 		pq.heapify(min, end)
