@@ -137,3 +137,22 @@ func TestWeightedGraph_Dijkstra(t *testing.T) {
 
 	g.DijkstraShortestPath(0, 4)
 }
+
+// https://youtu.be/jsmMtJpPnhU?t=117
+func TestWeightedGraph_PrimMinimumSpanningTree(t *testing.T) {
+	g := MakeWeightedGraph(6)
+	g.AddEdge(0, 1, 2)
+	g.AddEdge(0, 3, 2)
+	g.AddEdge(0, 2, 5)
+	g.AddEdge(0, 4, 3)
+	g.AddEdge(1, 3, 0)
+	g.AddEdge(2, 3, 1)
+	g.AddEdge(2, 4, 6)
+	g.AddEdge(3, 4, 4)
+	g.AddEdge(3, 5, 8)
+
+	_, _, err := g.PrimMinimumSpanningTree(0)
+	if err != nil {
+		print(err.Error())
+	}
+}

@@ -21,6 +21,12 @@ type Node struct {
 	next   *Node
 }
 
+type Edge struct {
+	from   int
+	to     int
+	weight int
+}
+
 func MakeGraph(numOfVertices int) Graph {
 	g := Graph{
 		adjacencyList: make(map[interface{}]*Node, numOfVertices),
@@ -50,7 +56,7 @@ func (g Graph) GetAdjacencyList(forNode interface{}) []*Node {
 
 func (g Graph) PrintAdjacencyList() {
 	for i := 0; i < g.numOfVertices; i++ {
-		fmt.Printf("Adjacency List of vertex %d| head", i)
+		fmt.Printf("Adjacency List of vertex %d|", i)
 		temp := g.adjacencyList[i]
 		for temp != nil {
 			fmt.Printf(" -> %d", temp.vertex)
