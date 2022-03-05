@@ -51,3 +51,17 @@ func TestPriorityQueue_Enqueue(t *testing.T) {
 
 	fmt.Printf("%v\n", pq.queue)
 }
+
+func TestPriorityQueue_Poll(t *testing.T) {
+	pq := MakePriorityQueue()
+	pq.Enqueue(3)
+	pq.Enqueue(5)
+	pq.Enqueue(9)
+	pq.Enqueue(10)
+	pq.Enqueue(2)
+
+	fmt.Printf("%v\n", pq.queue)
+
+	fmt.Printf("After first poll item returned: %d, %v\n", pq.Poll(), pq.queue)
+	fmt.Printf("After second poll item returned: %d, %v\n", pq.Poll(), pq.queue)
+}
