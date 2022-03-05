@@ -2,6 +2,7 @@ package graph
 
 import (
 	"DSA/sorting"
+	"fmt"
 )
 
 type WeightedGraph struct {
@@ -14,6 +15,14 @@ type NodeWithWeight struct {
 	vertex int
 	weight int
 	next   *NodeWithWeight
+}
+
+type WeightedGraphError struct {
+	errorString string
+}
+
+func (e WeightedGraphError) Error() string {
+	return e.errorString
 }
 
 func MakeWeightedGraph(numOfVertices int) WeightedGraph {
@@ -83,6 +92,29 @@ func (g *WeightedGraph) GetAdjacencyList(forNode int) []*NodeWithWeight {
 		temp = temp.next
 	}
 	return adjacencyList
+}
+
+// GetEdges returns a slice containing edges adjacent to forNode
+func (g *WeightedGraph) GetEdges(forNode int) []Edge {
+	var edges []Edge
+	temp := g.adjacencyList[forNode]
+	for temp != nil {
+		edges = append(edges, Edge{from: forNode, to: temp.vertex, weight: temp.weight})
+		temp = temp.next
+	}
+	return edges
+}
+
+func (g *WeightedGraph) PrintAdjacencyList() {
+	for i := 0; i < g.numOfVertices; i++ {
+		fmt.Printf("Adjacency List of vertex %d [v, w]", i)
+		temp := g.adjacencyList[i]
+		for temp != nil {
+			fmt.Printf(" -> (%d, %d)", temp.vertex, temp.weight)
+			temp = temp.next
+		}
+		println()
+	}
 }
 
 // union find is a data structure that keeps tracks of
