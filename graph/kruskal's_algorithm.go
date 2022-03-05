@@ -9,8 +9,8 @@ import "fmt"
 // https://youtu.be/JZBQLXgSGfs
 
 // KruskalMinimumSpanningTree finds a MST by:
-// 1. Sort edges by ascending edge weight
-// 2. Walk through the sorted edges and look at two nodes the edge belong to,
+// - 1. Sort edges by ascending edge weight
+// - 2. Walk through the sorted edges and look at two nodes the edge belong to,
 // 	  if the nodes are already unified/belongs to same group:
 //	  		we don't include this edge, (avoid creating cycle)
 //    else:

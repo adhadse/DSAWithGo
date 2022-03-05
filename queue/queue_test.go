@@ -1,6 +1,7 @@
 package queue
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -37,4 +38,16 @@ func TestQueue_IsEmpty(t *testing.T) {
 	if val := q.IsEmpty(); val != false {
 		t.Errorf("IsEmpty() returned true when Queue was not Empty")
 	}
+}
+
+// Priority Queue
+func TestPriorityQueue_Enqueue(t *testing.T) {
+	pq := MakePriorityQueue()
+	pq.Enqueue(3)
+	pq.Enqueue(5)
+	pq.Enqueue(9)
+	pq.Enqueue(10)
+	pq.Enqueue(2)
+
+	fmt.Printf("%v\n", pq.queue)
 }
