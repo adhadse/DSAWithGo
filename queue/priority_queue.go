@@ -19,7 +19,7 @@ func (pq *PriorityQueue) Enqueue(data int) {
 	}
 }
 
-func (pq *PriorityQueue) Poll() int {
+func (pq *PriorityQueue) Dequeue() int {
 	maxPriorityItem := pq.queue[0]
 	pq.queue = append(pq.queue[:0], pq.queue[1:]...)
 	for root := len(pq.queue)/2 - 1; root >= 0; root-- {
