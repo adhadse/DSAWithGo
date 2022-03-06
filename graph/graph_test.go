@@ -151,8 +151,11 @@ func TestWeightedGraph_PrimMinimumSpanningTree(t *testing.T) {
 	g.AddEdge(3, 4, 4)
 	g.AddEdge(3, 5, 8)
 
-	_, _, err := g.PrimMinimumSpanningTree(0)
+	mst, mstCost, err := g.PrimMinimumSpanningTree(0)
 	if err != nil {
 		print(err.Error())
+		return
 	}
+	mst.PrintAdjacencyList()
+	fmt.Printf("MST total cost: %d\n", mstCost)
 }

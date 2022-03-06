@@ -1,13 +1,11 @@
 package graph
 
-import "fmt"
-
 // PrimMinimumSpanningTree finds MST by:
 //
 // - 1. Maintain a min Priority queue for weight edges and visited list
 // - 2. Start with source node, mark it visited and add all edges from it
 //      to Priority queue
-// - 3. While PQ != empty & edgecount of our mst is not equal to one less than # of vertices
+// - 3. While PQ != empty & edgeCount of our mst is not equal to one less than # of vertices
 //      - Dequeue the next cheapest edge to travel which is not visited
 //      - Mark it visited and add it to mst
 // Time Complexity: O(E log(E))
@@ -46,7 +44,5 @@ func (g *WeightedGraph) PrimMinimumSpanningTree(source int) (*WeightedGraph, int
 	if edgeCount != g.numOfVertices-1 {
 		return nil, -1, WeightedGraphError{"No Mst Exist\n"}
 	}
-	mst.PrintAdjacencyList()
-	fmt.Printf("MST total cost: %d\n", mstCost)
 	return &mst, mstCost, nil
 }
