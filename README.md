@@ -27,7 +27,7 @@ Then why Go? One reason is for pure performance comparable to C, combined with t
 Go through them one by one, and reimplement in your favourite language.
 
 # Contribute
-Read [Contributing Guidelines](https://github.com/adhadse/DSAWithGo/blob/main/CONTRIBUTING.md)
+Read [Contributing Guidelines](https://github.com/adhadse/DSAWithGo/blob/master/CONTRIBUTING.md)
 # Prerequisites 📝
 Install Go for your relevant platform. If you are using editors or IDEs it's fairly easy to play through them, otherwise you can run these commands:
 

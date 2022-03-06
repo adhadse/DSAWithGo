@@ -1,0 +1,23 @@
+name: Feature Request
+description: File a feature request
+title: "[Feature Request] <title>"
+labels: [Feature Request, Needs Triage]
+body:
+  - type: textarea
+    attributes:
+      label: Is your feature request related to a problem?
+      description: Please descirbe.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you what to happen
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about feature request here.
+    validations:
+      required: false
