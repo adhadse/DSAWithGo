@@ -1,0 +1,35 @@
+name: Pull Request
+description: File a Pull Request
+title: "<title>"
+body:
+  - type: textarea
+    attributes:
+      label: Proposed changes
+      description: Describe concisely the big picture of your changes here to communicate what new this pull request brings.
+
+      If this resolves a feature request/bug issue make sure to link it here.
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: What types of changes does your code introduce?
+      description: You may select more than one
+      options:
+        - label: Bugfix (non-breaking change which fixes an issue)
+        - label: New feature (Bugfix (non-breaking change which fixes an issue)
+        - label: Bugfix (non-breaking change which fixes an issue)
+        - label: Documentation Update (if none of the other choices apply)
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      options:
+        - label: I have read the [Contributing Guidelines](https://github.com/adhadse/DSAWithGo/blob/master/CONTRIBUTING.md)
+          required: true
+        - label: I have formatted code using `gofmt`
+          required: true
+        - label: I have added tests for my code
+          required: true
+        - label: I have added necessary documentation/comments (if appropriate)
+  - type: textbox
+    attributes:
+      label: Further Comments
