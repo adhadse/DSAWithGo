@@ -4,14 +4,16 @@ A DSA repository but everything is in Go. Leave a star🌟if you love Go and lik
 Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisisshub](https://github.com/thisisshub/) with some tweaks, and new implementation for others  :)
 
 # Contents 📃
-1. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)
-2. [greedy](https://github.com/adhadse/DSAWithGo/tree/master/greedy)
-3. [linked_list](https://github.com/adhadse/DSAWithGo/tree/master/linked_list)
-4. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
-5. [queue](https://github.com/adhadse/DSAWithGo/tree/master/queue)
-6. [searching](https://github.com/adhadse/DSAWithGo/tree/master/searching)
-7. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
-8. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
+1. [bit_magic](https://github.com/adhadse/DSAWithGo/tree/master/bit_magic)
+2. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)
+3. [greedy](https://github.com/adhadse/DSAWithGo/tree/master/greedy)
+4. [linked_list](https://github.com/adhadse/DSAWithGo/tree/master/linked_list)
+5. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
+6. [queue](https://github.com/adhadse/DSAWithGo/tree/master/queue)
+7. [recursion](https://github.com/adhadse/DSAWithGo/tree/master/recursion)
+8. [searching](https://github.com/adhadse/DSAWithGo/tree/master/searching)
+9. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
+10. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
 
 # FAQ  🤔
 1. **Why in Go? Why not in Python/C/C++ etc?**
@@ -24,6 +26,8 @@ Then why Go? One reason is for pure performance comparable to C, combined with t
 
 Go through them one by one, and reimplement in your favourite language.
 
+# Contribute
+Read [Contributing Guidelines](https://github.com/adhadse/DSAWithGo/blob/main/CONTRIBUTING.md)
 # Prerequisites 📝
 Install Go for your relevant platform. If you are using editors or IDEs it's fairly easy to play through them, otherwise you can run these commands:
 
