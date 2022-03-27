@@ -8,6 +8,7 @@ package graph
 // - 3. While PQ != empty & edgeCount of our mst is not equal to one less than # of vertices
 //      - Dequeue the next cheapest edge to travel which is not visited
 //      - Mark it visited and add it to mst
+//      - Add all edges from this node to PQ
 // Time Complexity: O(E log(E))
 // https://youtu.be/jsmMtJpPnhU
 func (g *WeightedGraph) PrimMinimumSpanningTree(source int) (*WeightedGraph, int, error) {
