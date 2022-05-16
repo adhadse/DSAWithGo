@@ -1,3 +1,17 @@
+// Copyright 2022 The DSAWithGo Authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package graph
 
 import (
@@ -159,3 +173,43 @@ func TestWeightedGraph_PrimMinimumSpanningTree(t *testing.T) {
 	mst.PrintAdjacencyList()
 	fmt.Printf("MST total cost: %d\n", mstCost)
 }
+
+func TestWeightedGraph_ShortestPath(t *testing.T) {
+	g := MakeWeightedGraph(8)
+	g.AddEdge(0, 1, 1)
+	g.AddEdge(0, 2, 2)
+	g.AddEdge(0, 3, 3)
+	g.AddEdge(1, 4, 4)
+	g.AddEdge(1, 5, 11)
+	g.AddEdge(2, 4, 9)
+	g.AddEdge(2, 5, 5)
+	g.AddEdge(2, 6, 16)
+	g.AddEdge(3, 6, 2)
+	g.AddEdge(4, 7, 18)
+	g.AddEdge(5, 7, 13)
+	g.AddEdge(6, 7, 2)
+}
+
+//func TestExampleDijkstra(t *testing.T) {
+//	g := MakeDiWeightedGraph(9)
+//	g.AddEdge(0, 1, 4)
+//	g.AddEdge(0, 6, 7)
+//	g.AddEdge(0, 7, 3)
+//	g.AddEdge(7, 0, 3)
+//	g.AddEdge(7, 6, 4)
+//	g.AddEdge(1, 2, 1)
+//	g.AddEdge(2, 6, -2)
+//	g.AddEdge(2, 3, 1)
+//	g.AddEdge(3, 6, -7)
+//	g.AddEdge(3, 4, 2)
+//	g.AddEdge(4, 3, 2)
+//	g.AddEdge(4, 5, 3)
+//	g.AddEdge(3, 5, 4)
+//	g.AddEdge(6, 5, 3)
+//	g.AddEdge(6, 8, 5)
+//	g.AddEdge(8, 5, 5)
+//
+//	g.DijkstraShortestPath(0, 4)
+//	fmt.Println()
+//	g.BellmanFord(0)
+//}

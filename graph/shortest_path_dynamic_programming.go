@@ -12,19 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package sorting
+package graph
 
-// SelectionSort returns a sorted slice by selecting minimum
-// element from unsorted portion of slice and repeating the process
-func SelectionSort(list []int) []int {
-	for i := range list {
-		minidx := i
-		for j := i + 1; j < len(list); j++ {
-			if list[minidx] > list[j] {
-				minidx = j
+import "math"
+
+func (g *WeightedGraph) ShortestPath() int {
+	dist := make([]int, g.numOfVertices)
+	dist[g.numOfVertices-1] = 0
+
+	for i := g.numOfVertices - 2; i <= 0; i++ {
+		dist[i] = math.MaxInt64
+
+		for j := 0; j < g.numOfVertices; j++ {
+			if g.edgeExist(i, j) == false {
+				continue
 			}
+			weightFromNodeIToJ, _ := g.getWeight(i, j)
+			dist[i] = min(dist[i], weightFromNodeIToJ+dist[j])
 		}
-		list[i], list[minidx] = list[minidx], list[i]
 	}
-	return list
+	return dist[0]
 }

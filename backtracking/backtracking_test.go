@@ -10,21 +10,31 @@
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License.
+// limitations under the License.package backtracking
 
-package sorting
+package backtracking
 
-// SelectionSort returns a sorted slice by selecting minimum
-// element from unsorted portion of slice and repeating the process
-func SelectionSort(list []int) []int {
-	for i := range list {
-		minidx := i
-		for j := i + 1; j < len(list); j++ {
-			if list[minidx] > list[j] {
-				minidx = j
-			}
-		}
-		list[i], list[minidx] = list[minidx], list[i]
+import (
+	"fmt"
+	"testing"
+)
+
+func TestSolveNQueensProblem(t *testing.T) {
+	board := [][]int{
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 0, 0},
 	}
-	return list
+	board, solved := SolveNQueensProblem(board, 0)
+	if solved == false {
+		println("Solution does not exist")
+		return
+	}
+	for i := 0; i < 4; i++ {
+		for j := 0; j < 4; j++ {
+			fmt.Printf(" %d ", board[i][j])
+		}
+		println()
+	}
 }
