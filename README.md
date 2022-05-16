@@ -4,16 +4,17 @@ A DSA repository but everything is in Go. Leave a star🌟if you love Go and lik
 Reimplementation of this [DSA repo](https://github.com/thisisshub/DSA) by [thisisshub](https://github.com/thisisshub/) with some tweaks, and new implementation for others  :)
 
 # Contents 📃
-1. [bit_magic](https://github.com/adhadse/DSAWithGo/tree/master/bit_magic)
-2. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)
-3. [greedy](https://github.com/adhadse/DSAWithGo/tree/master/greedy)
-4. [linked_list](https://github.com/adhadse/DSAWithGo/tree/master/linked_list)
-5. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
-6. [queue](https://github.com/adhadse/DSAWithGo/tree/master/queue)
-7. [recursion](https://github.com/adhadse/DSAWithGo/tree/master/recursion)
-8. [searching](https://github.com/adhadse/DSAWithGo/tree/master/searching)
-9. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
-10. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
+1. [backtracking](https://github.com/adhadse/DSAWithGo/tree/master/backtracking)
+2. [bit_magic](https://github.com/adhadse/DSAWithGo/tree/master/bit_magic)
+3. [graph](https://github.com/adhadse/DSAWithGo/tree/master/graph)
+4. [greedy](https://github.com/adhadse/DSAWithGo/tree/master/greedy)
+5. [linked_list](https://github.com/adhadse/DSAWithGo/tree/master/linked_list)
+6. [mathematics](https://github.com/adhadse/DSAWithGo/tree/master/mathematics)
+7. [queue](https://github.com/adhadse/DSAWithGo/tree/master/queue)
+8. [recursion](https://github.com/adhadse/DSAWithGo/tree/master/recursion)
+9. [searching](https://github.com/adhadse/DSAWithGo/tree/master/searching)
+10. [sorting](https://github.com/adhadse/DSAWithGo/tree/master/sorting)
+11. [tree](https://github.com/adhadse/DSAWithGo/tree/master/tree)
 
 # FAQ  🤔
 1. **Why in Go? Why not in Python/C/C++ etc?**
